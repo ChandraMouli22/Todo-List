@@ -51,7 +51,7 @@
         let todos=[]
 
         document.addEventListener("DOMContentLoaded",async()=>{
-            let data= await fetch("http://localhost:3000",{
+            let data= await fetch("https://todo-list-jyqt.onrender.com",{
                 method:'GET',
                 headers:{"Content-type":"application/json"} 
             })
@@ -93,7 +93,7 @@
     function addTodo() {
         let value=document.getElementById("todo-input")
         let text=value.value
-        fetch("http://localhost:3000/add-item",{
+        fetch("https://todo-list-jyqt.onrender.com",{
             method:'POST',
             headers:{"Content-type":"application/json"},
             body:JSON.stringify({text})
@@ -103,7 +103,7 @@
     function deleteTodo(index) 
     {
         const ID = todos[index].ID;  
-        fetch("http://localhost:3000/delete-item",{
+        fetch("https://todo-list-jyqt.onrender.com",{
             method:'DELETE',
             headers:{"Content-type":"application/json"},
             body:JSON.stringify({ID:ID})
@@ -122,7 +122,7 @@
         let todo = todos.find(t=>t.ID===ID)
         if(!todo) return
 
-        fetch("http://localhost:3000/edit-item",{
+        fetch("https://todo-list-jyqt.onrender.com",{
             method:'PUT',
             headers:{"Content-type":"application/json"},
             body:JSON.stringify({ID:ID, itemDescription:todo.text})
