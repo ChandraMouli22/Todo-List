@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const mysql = require("mysql2");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`server running on port ${PORT}`));
 
 const db = mysql.createConnection({
   host: "localhost",
